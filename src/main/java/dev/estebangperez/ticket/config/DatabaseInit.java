@@ -3,6 +3,7 @@ package dev.estebangperez.ticket.config;
 import dev.estebangperez.ticket.model.domain.*;
 import dev.estebangperez.ticket.repository.*;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class DatabaseInit {
 
     private final TicketerEventRepository eventRepository;
@@ -21,24 +23,6 @@ public class DatabaseInit {
     private final TicketerSeatRepository seatRepository;
     private final TicketerTicketRepository ticketRepository;
     private final TicketerUserRepository userRepository;
-
-    public DatabaseInit(TicketerEventRepository eventRepository,
-                           TicketerPerformerRepository performerRepository,
-                           TicketerVenueRepository venueRepository,
-                           TicketerZoneRepository zoneRepository,
-                           TicketerConcertRepository concertRepository,
-                           TicketerSeatRepository seatRepository,
-                           TicketerTicketRepository ticketRepository,
-                           TicketerUserRepository userRepository) {
-        this.eventRepository = eventRepository;
-        this.performerRepository = performerRepository;
-        this.venueRepository = venueRepository;
-        this.zoneRepository = zoneRepository;
-        this.concertRepository = concertRepository;
-        this.seatRepository = seatRepository;
-        this.ticketRepository = ticketRepository;
-        this.userRepository = userRepository;
-    }
 
     @PostConstruct
     public void initExampleData() {
