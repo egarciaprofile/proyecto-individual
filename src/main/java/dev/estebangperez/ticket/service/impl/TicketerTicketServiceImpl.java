@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class TicketerTicketService extends BaseService<TicketerTicket, Long> {
+public class TicketerTicketServiceImpl extends BaseService<TicketerTicket, Long> {
 
     private final TicketerTicketRepository ticketRepository;
 

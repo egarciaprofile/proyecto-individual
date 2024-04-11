@@ -50,7 +50,9 @@ public class DatabaseInit {
 
         TicketerVenue venue = venueRepository.save(TicketerVenue.builder()
                 .name("Concert Hall")
-                .location("123 Main St")
+                .address("123 Main St")
+                .city("Seville")
+                .country("Spain")
                 .capacity(1000)
                 .build());
 
