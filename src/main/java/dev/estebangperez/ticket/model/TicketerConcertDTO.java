@@ -6,6 +6,7 @@ import lombok.*;
 @Setter
 @Builder
 public class TicketerConcertDTO {
+    private Long id;
     private TicketerEventDTO event;
     private TicketerPerformerDTO performer;
 }

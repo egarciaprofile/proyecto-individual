@@ -8,7 +8,7 @@ import java.util.Set;
 @Setter
 @Builder
 public class TicketerUserDTO {
-    //password?
+    private Long id;
     private String name;
     private String surname;
     private String email;

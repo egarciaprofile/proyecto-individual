@@ -9,6 +9,7 @@ import java.util.Set;
 @Setter
 @Builder
 public class TicketerEventDTO {
+    private Long id;
     private String name;
     private LocalDateTime eventDate;
     private TicketerVenueDTO venue;

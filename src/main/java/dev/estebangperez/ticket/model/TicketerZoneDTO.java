@@ -9,6 +9,7 @@ import java.util.Set;
 @Setter
 @Builder
 public class TicketerZoneDTO {
+    private Long id;
     private String name;
     private String description;
     private BigDecimal price;
