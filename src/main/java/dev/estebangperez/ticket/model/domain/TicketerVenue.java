@@ -22,7 +22,13 @@ public class TicketerVenue {
     private String name;
 
     @Column(nullable = false)
-    private String location;
+    private String city;
+
+    @Column(nullable = false)
+    private String country;
+
+    @Column(nullable = false)
+    private String address;
 
     @Column
     private Integer capacity;
