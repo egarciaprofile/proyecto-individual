@@ -5,8 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface TicketerVenueRepository extends JpaRepository<TicketerVenue, Long> {
-    List<TicketerVenue> findByCountry(String country);
+    Set<TicketerVenue> findByCountry(String country);
 }

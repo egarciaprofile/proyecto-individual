@@ -5,10 +5,14 @@ import dev.estebangperez.ticket.model.domain.TicketerVenue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class TicketerVenueMapper {
     public static TicketerVenueDTO toDTO(TicketerVenue venue) {
+        if (venue == null) {
+            return null;
+        }
         return TicketerVenueDTO.builder()
                 .id(venue.getId())
                 .name(venue.getName())
@@ -32,11 +36,11 @@ public class TicketerVenueMapper {
                 .build();
     }
 
-    public static List<TicketerVenueDTO> mapVenuesFromEntityToDto(List<TicketerVenue> venues) {
-        return venues.stream().map(TicketerVenueMapper::toDTO).collect(Collectors.toList());
+    public static Set<TicketerVenueDTO> mapVenuesFromEntityToDto(Set<TicketerVenue> venues) {
+        return venues.stream().map(TicketerVenueMapper::toDTO).collect(Collectors.toSet());
     }
 
-    public static List<TicketerVenue> mapVenuesFromDtoToEntity(List<TicketerVenueDTO> venueDtos) {
-        return venueDtos.stream().map(TicketerVenueMapper::fromDTO).collect(Collectors.toList());
+    public static Set<TicketerVenue> mapVenuesFromDtoToEntity(Set<TicketerVenueDTO> venueDtos) {
+        return venueDtos.stream().map(TicketerVenueMapper::fromDTO).collect(Collectors.toSet());
     }
 }

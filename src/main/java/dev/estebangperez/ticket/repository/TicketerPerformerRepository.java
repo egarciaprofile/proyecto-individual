@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface TicketerPerformerRepository extends JpaRepository<TicketerPerformer, Long> {
-    List<TicketerPerformer> findByNameContainingIgnoreCase(String name);
+    Set<TicketerPerformer> findByNameContainingIgnoreCase(String name);
 }
