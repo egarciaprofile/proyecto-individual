@@ -16,7 +16,7 @@ import java.util.List;
 public class TicketerPerformerServiceImpl extends BaseService<TicketerPerformer, Long> implements TicketerPerformerService {
     private final TicketerPerformerRepository performerRepository;
 
-    public List<TicketerEvent> findByNameContainingIgnoreCase(String name) {
+    public List<TicketerPerformer> findByNameContainingIgnoreCase(String name) {
         return performerRepository.findByNameContainingIgnoreCase(name);
     }
 

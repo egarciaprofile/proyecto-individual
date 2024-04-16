@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface TicketerPerformerRepository extends JpaRepository<TicketerPerformer, Long> {
-    List<TicketerEvent> findByNameContainingIgnoreCase(String name);
+    List<TicketerPerformer> findByNameContainingIgnoreCase(String name);
 }
