@@ -8,6 +8,7 @@ import java.util.Set;
 @Setter
 @Builder
 public class TicketerPerformerDTO {
+    private Long id;
     private String name;
     private String genre;
     private Set<TicketerConcertDTO> concerts;

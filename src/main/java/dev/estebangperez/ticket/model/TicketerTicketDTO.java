@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 public class TicketerTicketDTO {
+    private Long id;
     private TicketerUserDTO user;
     private TicketerConcertDTO concert;
     private TicketerSeatDTO seat;
