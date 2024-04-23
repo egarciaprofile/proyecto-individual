@@ -1,6 +1,7 @@
 package dev.estebangperez.ticket.util;
 
 import dev.estebangperez.ticket.model.TicketerSeatDTO;
+import dev.estebangperez.ticket.model.domain.TicketerConcert;
 import dev.estebangperez.ticket.model.domain.TicketerSeat;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ public class TicketerSeatMapper {
 
     public static Set<TicketerSeatDTO> mapSeatsFromEntityToDto(Set<TicketerSeat> seats) {
         return seats.stream().map(TicketerSeatMapper::toDTO).collect(Collectors.toSet());
+    }
+
+    public static List<Long> mapSeatsFromEntityToDtoId(Set<TicketerSeat> seats) {
+        return seats.stream().map(TicketerSeat::getId).collect(Collectors.toList());
     }
 
     public static Set<TicketerSeat> mapSeatsFromDtoToEntity(Set<TicketerSeatDTO> seatDtos) {

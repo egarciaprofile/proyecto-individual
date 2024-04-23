@@ -3,6 +3,7 @@ package dev.estebangperez.ticket.model;
 import jakarta.persistence.Column;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -15,6 +16,6 @@ public class TicketerVenueDTO {
     private String city;
     private String country;
     private String address;
-    private Set<TicketerEventDTO> events;
-    private Set<TicketerZoneDTO> zones;
+    private List<Long> events;
+    private List<Long> zones;
 }

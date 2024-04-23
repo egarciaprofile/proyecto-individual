@@ -15,7 +15,7 @@ public class TicketerUserMapper {
                 .surname(user.getSurname())
                 .email(user.getEmail())
                 .phone(user.getPhone())
-                .tickets(TicketerTicketMapper.mapTicketsFromEntityToDto(user.getTickets()))
+                .tickets(TicketerTicketMapper.mapTicketsFromEntityToDtoId(user.getTickets()))
                 .build();
     }
 
@@ -26,7 +26,7 @@ public class TicketerUserMapper {
                 .surname(dto.getSurname())
                 .email(dto.getEmail())
                 .phone(dto.getPhone())
-                .tickets(TicketerTicketMapper.mapTicketsFromDtoToEntity(dto.getTickets()))
+                //.tickets(TicketerTicketMapper.mapTicketsFromDtoToEntity(dto.getTickets()))
                 .build();
     }
 

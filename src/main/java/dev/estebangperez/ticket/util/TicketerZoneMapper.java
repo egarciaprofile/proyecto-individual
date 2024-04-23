@@ -1,6 +1,7 @@
 package dev.estebangperez.ticket.util;
 
 import dev.estebangperez.ticket.model.TicketerZoneDTO;
+import dev.estebangperez.ticket.model.domain.TicketerSeat;
 import dev.estebangperez.ticket.model.domain.TicketerZone;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class TicketerZoneMapper {
                 .name(zone.getName())
                 .description(zone.getDescription())
                 .price(zone.getPrice())
-                .seats(TicketerSeatMapper.mapSeatsFromEntityToDto(zone.getSeats()))
+                .seats(TicketerSeatMapper.mapSeatsFromEntityToDtoId(zone.getSeats()))
                 .build();
     }
 
@@ -25,12 +26,16 @@ public class TicketerZoneMapper {
                 .name(dto.getName())
                 .description(dto.getDescription())
                 .price(dto.getPrice())
-                .seats(TicketerSeatMapper.mapSeatsFromDtoToEntity(dto.getSeats()))
+                //.seats(TicketerSeatMapper.mapSeatsFromDtoToEntity(dto.getSeats()))
                 .build();
     }
 
     public static Set<TicketerZoneDTO> mapZonesFromEntityToDto(Set<TicketerZone> zones) {
         return zones.stream().map(TicketerZoneMapper::toDTO).collect(Collectors.toSet());
+    }
+
+    public static List<Long> mapZonesFromEntityToDtoId(Set<TicketerZone> zones) {
+        return zones.stream().map(TicketerZone::getId).collect(Collectors.toList());
     }
 
     public static Set<TicketerZone> mapZonesFromDtoToEntity(Set<TicketerZoneDTO> zoneDtos) {

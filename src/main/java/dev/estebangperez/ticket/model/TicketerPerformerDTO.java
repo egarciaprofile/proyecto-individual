@@ -2,6 +2,7 @@ package dev.estebangperez.ticket.model;
 
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -11,5 +12,5 @@ public class TicketerPerformerDTO {
     private Long id;
     private String name;
     private String genre;
-    private Set<TicketerConcertDTO> concerts;
+    private List<Long> concerts;
 }

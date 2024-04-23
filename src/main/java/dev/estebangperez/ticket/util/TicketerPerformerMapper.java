@@ -14,7 +14,7 @@ public class TicketerPerformerMapper {
                 .id(performer.getId())
                 .name(performer.getName())
                 .genre(performer.getGenre())
-                .concerts(TicketerConcertMapper.mapConcertsFromEntityToDto(performer.getConcerts()))
+                .concerts(TicketerConcertMapper.mapConcertsFromEntityToDtoId(performer.getConcerts()))
                 .build();
     }
 
@@ -23,7 +23,7 @@ public class TicketerPerformerMapper {
                 .id(dto.getId())
                 .name(dto.getName())
                 .genre(dto.getGenre())
-                .concerts(TicketerConcertMapper.mapConcertsFromDtoToEntity(dto.getConcerts()))
+                //.concerts(TicketerConcertMapper.mapConcertsFromDtoToEntity(dto.getConcerts()))
                 .build();
     }
 

@@ -1,8 +1,11 @@
 package dev.estebangperez.ticket.util;
 
 import dev.estebangperez.ticket.model.TicketerEventDTO;
+import dev.estebangperez.ticket.model.domain.TicketerConcert;
 import dev.estebangperez.ticket.model.domain.TicketerEvent;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -13,8 +16,8 @@ public class TicketerEventMapper {
                 .name(event.getName())
                 .eventDate(event.getEventDate())
                 .venue(TicketerVenueMapper.toDTO(event.getVenue()))
-                .concerts(TicketerConcertMapper.mapConcertsFromEntityToDto(event.getConcerts()))
-                .seats(TicketerSeatMapper.mapSeatsFromEntityToDto(event.getSeats()))
+                .concerts(TicketerConcertMapper.mapConcertsFromEntityToDtoId(event.getConcerts()))
+                .seats(TicketerSeatMapper.mapSeatsFromEntityToDtoId(event.getSeats()))
                 .build();
     }
 
@@ -24,13 +27,17 @@ public class TicketerEventMapper {
                 .name(dto.getName())
                 .eventDate(dto.getEventDate())
                 .venue(TicketerVenueMapper.fromDTO(dto.getVenue()))
-                .concerts(TicketerConcertMapper.mapConcertsFromDtoToEntity(dto.getConcerts()))
-                .seats(TicketerSeatMapper.mapSeatsFromDtoToEntity(dto.getSeats()))
+                .concerts(new HashSet<>())
+                .seats(new HashSet<>())
                 .build();
     }
 
     public static Set<TicketerEventDTO> mapEventsFromEntityToDto(Set<TicketerEvent> events) {
         return events.stream().map(TicketerEventMapper::toDTO).collect(Collectors.toSet());
+    }
+
+    public static List<Long> mapEventsFromEntityToDtoId(Set<TicketerEvent> events) {
+        return events.stream().map(TicketerEvent::getId).collect(Collectors.toList());
     }
 
     public static Set<TicketerEvent> mapEventsFromDtoToEntity(Set<TicketerEventDTO> eventDtos) {
