@@ -1,10 +1,8 @@
 package dev.estebangperez.ticket.util;
 
 import dev.estebangperez.ticket.model.TicketerEventDTO;
-import dev.estebangperez.ticket.model.domain.TicketerConcert;
 import dev.estebangperez.ticket.model.domain.TicketerEvent;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

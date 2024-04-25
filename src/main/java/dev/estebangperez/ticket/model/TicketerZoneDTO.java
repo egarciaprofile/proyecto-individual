@@ -1,11 +1,10 @@
 package dev.estebangperez.ticket.model;
 
-import dev.estebangperez.ticket.model.domain.TicketerVenue;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter

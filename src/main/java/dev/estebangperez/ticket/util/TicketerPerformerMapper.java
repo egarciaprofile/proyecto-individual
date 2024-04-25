@@ -3,7 +3,6 @@ package dev.estebangperez.ticket.util;
 import dev.estebangperez.ticket.model.TicketerPerformerDTO;
 import dev.estebangperez.ticket.model.domain.TicketerPerformer;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

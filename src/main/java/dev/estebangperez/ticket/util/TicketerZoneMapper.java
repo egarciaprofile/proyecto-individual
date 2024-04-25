@@ -1,10 +1,8 @@
 package dev.estebangperez.ticket.util;
 
 import dev.estebangperez.ticket.model.TicketerZoneDTO;
-import dev.estebangperez.ticket.model.domain.TicketerSeat;
 import dev.estebangperez.ticket.model.domain.TicketerZone;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

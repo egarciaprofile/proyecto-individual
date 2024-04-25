@@ -1,9 +1,8 @@
 package dev.estebangperez.ticket.controller;
 
 import dev.estebangperez.ticket.model.TicketerConcertDTO;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
@@ -12,7 +11,7 @@ import java.util.Set;
 public interface TicketerConcertApi {
 
     @GetMapping(value = "/search/{performerName}")
-    ResponseEntity<Set<TicketerConcertDTO>>  getConcertByPerformerName(@PathVariable String performerName);
+    ResponseEntity<Set<TicketerConcertDTO>> getConcertByPerformerName(@PathVariable String performerName);
 
     @PostMapping("/")
     ResponseEntity<TicketerConcertDTO> createConcert(@RequestBody TicketerConcertDTO concertDTO);

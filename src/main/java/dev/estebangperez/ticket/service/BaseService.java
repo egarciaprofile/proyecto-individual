@@ -1,14 +1,16 @@
 package dev.estebangperez.ticket.service;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.List;
 import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * This class will implement the wrappers for the standard CRUD methods for each repository with ease
- * @author egarcia_profile
+ *
  * @param <T>
  * @param <ID>
+ * @author egarcia_profile
  */
 public abstract class BaseService<T, ID> {
 

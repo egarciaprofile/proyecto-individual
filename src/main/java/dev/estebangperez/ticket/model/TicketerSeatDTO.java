@@ -1,7 +1,8 @@
 package dev.estebangperez.ticket.model;
 
-import dev.estebangperez.ticket.model.domain.TicketerEvent;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter

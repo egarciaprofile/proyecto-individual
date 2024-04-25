@@ -1,10 +1,8 @@
 package dev.estebangperez.ticket.controller.impl;
 
-import dev.estebangperez.ticket.controller.TicketerConcertApi;
 import dev.estebangperez.ticket.controller.TicketerUserApi;
 import dev.estebangperez.ticket.model.TicketerUserDTO;
 import dev.estebangperez.ticket.model.domain.TicketerUser;
-import dev.estebangperez.ticket.service.impl.TicketerConcertServiceImpl;
 import dev.estebangperez.ticket.service.impl.TicketerUserServiceImpl;
 import dev.estebangperez.ticket.util.TicketerUserMapper;
 import lombok.AllArgsConstructor;

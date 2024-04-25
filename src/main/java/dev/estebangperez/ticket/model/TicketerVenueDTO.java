@@ -1,10 +1,8 @@
 package dev.estebangperez.ticket.model;
 
-import jakarta.persistence.Column;
-import lombok.*;
-
-import java.util.List;
-import java.util.Set;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
