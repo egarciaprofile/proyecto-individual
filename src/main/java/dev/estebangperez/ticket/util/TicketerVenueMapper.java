@@ -19,8 +19,7 @@ public class TicketerVenueMapper {
                 .city(venue.getCity())
                 .country(venue.getCountry())
                 .address(venue.getAddress())
-                .events(TicketerEventMapper.mapEventsFromEntityToDtoId(venue.getEvents()))
-                .zones(TicketerZoneMapper.mapZonesFromEntityToDtoId(venue.getZones()))
+                .capacity(venue.getCapacity())
                 .build();
     }
 
@@ -31,8 +30,7 @@ public class TicketerVenueMapper {
                 .city(dto.getCity())
                 .country(dto.getCountry())
                 .address(dto.getAddress())
-                //.events(TicketerEventMapper.mapEventsFromDtoToEntity(dto.getEvents()))
-                //.zones(TicketerZoneMapper.mapZonesFromDtoToEntity(dto.getZones()))
+                .capacity(dto.getCapacity())
                 .build();
     }
 

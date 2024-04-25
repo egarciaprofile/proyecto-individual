@@ -16,8 +16,6 @@ public class TicketerEventMapper {
                 .name(event.getName())
                 .eventDate(event.getEventDate())
                 .venue(TicketerVenueMapper.toDTO(event.getVenue()))
-                .concerts(TicketerConcertMapper.mapConcertsFromEntityToDtoId(event.getConcerts()))
-                .seats(TicketerSeatMapper.mapSeatsFromEntityToDtoId(event.getSeats()))
                 .build();
     }
 
@@ -27,8 +25,6 @@ public class TicketerEventMapper {
                 .name(dto.getName())
                 .eventDate(dto.getEventDate())
                 .venue(TicketerVenueMapper.fromDTO(dto.getVenue()))
-                .concerts(new HashSet<>())
-                .seats(new HashSet<>())
                 .build();
     }
 

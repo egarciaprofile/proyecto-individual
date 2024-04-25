@@ -14,6 +14,4 @@ public class TicketerEventDTO {
     private String name;
     private LocalDateTime eventDate;
     private TicketerVenueDTO venue;
-    private List<Long> concerts;
-    private List<Long> seats;
 }

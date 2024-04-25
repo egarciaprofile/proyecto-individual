@@ -12,10 +12,8 @@ import java.util.Set;
 public class TicketerVenueDTO {
     private Long id;
     private String name;
-    private String location;
     private String city;
     private String country;
     private String address;
-    private List<Long> events;
-    private List<Long> zones;
+    private Integer capacity;
 }

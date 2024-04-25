@@ -12,5 +12,4 @@ public class TicketerPerformerDTO {
     private Long id;
     private String name;
     private String genre;
-    private List<Long> concerts;
 }

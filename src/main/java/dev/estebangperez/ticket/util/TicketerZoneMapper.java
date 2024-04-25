@@ -16,7 +16,7 @@ public class TicketerZoneMapper {
                 .name(zone.getName())
                 .description(zone.getDescription())
                 .price(zone.getPrice())
-                .seats(TicketerSeatMapper.mapSeatsFromEntityToDtoId(zone.getSeats()))
+                .venue(TicketerVenueMapper.toDTO(zone.getVenue()))
                 .build();
     }
 
@@ -26,7 +26,7 @@ public class TicketerZoneMapper {
                 .name(dto.getName())
                 .description(dto.getDescription())
                 .price(dto.getPrice())
-                //.seats(TicketerSeatMapper.mapSeatsFromDtoToEntity(dto.getSeats()))
+                .venue(TicketerVenueMapper.fromDTO(dto.getVenue()))
                 .build();
     }
 

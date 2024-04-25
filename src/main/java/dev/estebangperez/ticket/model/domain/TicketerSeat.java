@@ -23,7 +23,4 @@ public class TicketerSeat {
     @ManyToOne
     @JoinColumn(name = "zone_id", nullable = false)
     private TicketerZone zone;
-
-    @OneToOne(mappedBy = "seat")
-    private TicketerTicket ticket;
 }

@@ -23,7 +23,4 @@ public class TicketerPerformer {
 
     @Column(length = 100)
     private String genre;
-
-    @OneToMany(mappedBy = "performer")
-    private Set<TicketerConcert> concerts;
 }

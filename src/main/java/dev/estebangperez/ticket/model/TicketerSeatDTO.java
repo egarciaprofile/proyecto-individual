@@ -1,5 +1,6 @@
 package dev.estebangperez.ticket.model;
 
+import dev.estebangperez.ticket.model.domain.TicketerEvent;
 import lombok.*;
 
 @Getter
@@ -8,5 +9,5 @@ import lombok.*;
 public class TicketerSeatDTO {
     private Long id;
     private TicketerZoneDTO zone;
-    private TicketerTicketDTO ticket;
+    private TicketerEventDTO event;
 }

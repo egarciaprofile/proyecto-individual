@@ -14,7 +14,7 @@ public class TicketerSeatMapper {
         return TicketerSeatDTO.builder()
                 .id(seat.getId())
                 .zone(TicketerZoneMapper.toDTO(seat.getZone()))
-                .ticket(TicketerTicketMapper.toDTO(seat.getTicket()))
+                .event(TicketerEventMapper.toDTO(seat.getEvent()))
                 .build();
     }
 
@@ -22,7 +22,7 @@ public class TicketerSeatMapper {
         return TicketerSeat.builder()
                 .id(dto.getId())
                 .zone(TicketerZoneMapper.fromDTO(dto.getZone()))
-                .ticket(TicketerTicketMapper.fromDTO(dto.getTicket()))
+                .event(TicketerEventMapper.fromDTO(dto.getEvent()))
                 .build();
     }
 

@@ -32,10 +32,4 @@ public class TicketerVenue {
 
     @Column
     private Integer capacity;
-
-    @OneToMany(mappedBy = "venue")
-    private Set<TicketerEvent> events;
-
-    @OneToMany(mappedBy = "venue")
-    private Set<TicketerZone> zones;
 }

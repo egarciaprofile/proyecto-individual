@@ -32,7 +32,4 @@ public class TicketerUser {
 
     @Column(nullable = false, length = 32)
     private String phone;
-
-    @OneToMany(mappedBy = "user")
-    private Set<TicketerTicket> tickets;
 }

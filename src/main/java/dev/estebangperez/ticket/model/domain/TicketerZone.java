@@ -31,7 +31,4 @@ public class TicketerZone {
 
     @Column(nullable = false)
     private BigDecimal price;
-
-    @OneToMany(mappedBy = "zone")
-    private Set<TicketerSeat> seats;
 }
