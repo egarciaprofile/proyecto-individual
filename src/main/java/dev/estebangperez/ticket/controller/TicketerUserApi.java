@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping(value = "/user")
 public interface TicketerUserApi {
     @PostMapping("/")
-    TicketerUserDTO createUser(@RequestBody TicketerUserDTO userDTO);
+    ResponseEntity<TicketerUserDTO> createUser(@RequestBody TicketerUserDTO userDTO);
 
     @GetMapping("/{id}")
     ResponseEntity<TicketerUserDTO> getUserById(@PathVariable Long id);
@@ -22,5 +22,5 @@ public interface TicketerUserApi {
     ResponseEntity<Void> deleteUser(@PathVariable Long id);
 
     @GetMapping("/")
-    List<TicketerUserDTO> listUsers();
+    ResponseEntity<List<TicketerUserDTO>> listUsers();
 }

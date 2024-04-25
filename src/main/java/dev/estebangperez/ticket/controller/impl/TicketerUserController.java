@@ -22,9 +22,10 @@ public class TicketerUserController implements TicketerUserApi {
     private final TicketerUserServiceImpl ticketerUserService;
 
     @Override
-    public TicketerUserDTO createUser(@RequestBody TicketerUserDTO userDTO) {
+    public ResponseEntity<TicketerUserDTO> createUser(@RequestBody TicketerUserDTO userDTO) {
         TicketerUser user = TicketerUserMapper.fromDTO(userDTO);
-        return TicketerUserMapper.toDTO(ticketerUserService.save(user));
+        TicketerUserDTO savedUserDTO = TicketerUserMapper.toDTO(ticketerUserService.save(user));
+        return ResponseEntity.ok(savedUserDTO);
     }
 
     @Override
@@ -48,9 +49,10 @@ public class TicketerUserController implements TicketerUserApi {
     }
 
     @Override
-    public List<TicketerUserDTO> listUsers() {
-        return ticketerUserService.findAll().stream()
+    public ResponseEntity<List<TicketerUserDTO>> listUsers() {
+        List<TicketerUserDTO> users = ticketerUserService.findAll().stream()
                 .map(TicketerUserMapper::toDTO)
                 .collect(Collectors.toList());
+        return ResponseEntity.ok(users);
     }
 }

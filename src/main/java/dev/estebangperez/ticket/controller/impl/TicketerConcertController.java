@@ -21,16 +21,16 @@ public class TicketerConcertController implements TicketerConcertApi {
     private final TicketerConcertServiceImpl ticketerConcertService;
 
     @Override
-    public Set<TicketerConcertDTO> getConcertByPerformerName(@PathVariable String performerName) {
-        return ticketerConcertService.findByPerformerNameContainingIgnoreCase(performerName);
+    public ResponseEntity<Set<TicketerConcertDTO>> getConcertByPerformerName(@PathVariable String performerName) {
+        Set<TicketerConcertDTO> concerts = ticketerConcertService.findByPerformerNameContainingIgnoreCase(performerName);
+        return ResponseEntity.ok(concerts);
     }
-
     @Override
-    public TicketerConcertDTO createConcert(@RequestBody TicketerConcertDTO concertDTO) {
+    public ResponseEntity<TicketerConcertDTO> createConcert(@RequestBody TicketerConcertDTO concertDTO) {
         TicketerConcert concert = TicketerConcertMapper.fromDTO(concertDTO);
-        return TicketerConcertMapper.toDTO(ticketerConcertService.save(concert));
+        TicketerConcertDTO savedConcertDTO = TicketerConcertMapper.toDTO(ticketerConcertService.save(concert));
+        return ResponseEntity.ok(savedConcertDTO);
     }
-
     @Override
     public ResponseEntity<TicketerConcertDTO> getConcertById(@PathVariable Long id) {
         return ticketerConcertService.findById(id)
@@ -39,11 +39,11 @@ public class TicketerConcertController implements TicketerConcertApi {
     }
 
     @Override
-    public List<TicketerConcertDTO> getAllConcerts() {
-        return ticketerConcertService.findAll().stream()
-                .map(TicketerConcertMapper::
-                        toDTO)
+    public ResponseEntity<List<TicketerConcertDTO>> getAllConcerts() {
+        List<TicketerConcertDTO> concerts = ticketerConcertService.findAll().stream()
+                .map(TicketerConcertMapper::toDTO)
                 .collect(Collectors.toList());
+        return ResponseEntity.ok(concerts);
     }
 
     @Override

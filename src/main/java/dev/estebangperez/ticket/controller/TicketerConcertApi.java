@@ -12,16 +12,16 @@ import java.util.Set;
 public interface TicketerConcertApi {
 
     @GetMapping(value = "/search/{performerName}")
-    Set<TicketerConcertDTO> getConcertByPerformerName(@PathVariable String performerName);
+    ResponseEntity<Set<TicketerConcertDTO>>  getConcertByPerformerName(@PathVariable String performerName);
 
     @PostMapping("/")
-    TicketerConcertDTO createConcert(@RequestBody TicketerConcertDTO concertDTO);
+    ResponseEntity<TicketerConcertDTO> createConcert(@RequestBody TicketerConcertDTO concertDTO);
 
     @GetMapping("/{id}")
     ResponseEntity<TicketerConcertDTO> getConcertById(@PathVariable Long id);
 
     @GetMapping("/")
-    List<TicketerConcertDTO> getAllConcerts();
+    ResponseEntity<List<TicketerConcertDTO>> getAllConcerts();
 
     @DeleteMapping("/{id}")
     ResponseEntity<Void> deleteConcert(@PathVariable Long id);
