@@ -1,9 +1,10 @@
 package dev.estebangperez.ticket.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -13,6 +14,4 @@ public class TicketerEventDTO {
     private String name;
     private LocalDateTime eventDate;
     private TicketerVenueDTO venue;
-    private Set<TicketerConcertDTO> concerts;
-    private Set<TicketerSeatDTO> seats;
 }

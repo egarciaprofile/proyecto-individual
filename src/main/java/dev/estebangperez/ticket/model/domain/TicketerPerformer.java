@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Entity
 @Getter
 @NoArgsConstructor
@@ -23,7 +21,4 @@ public class TicketerPerformer {
 
     @Column(length = 100)
     private String genre;
-
-    @OneToMany(mappedBy = "performer")
-    private Set<TicketerConcert> concerts;
 }

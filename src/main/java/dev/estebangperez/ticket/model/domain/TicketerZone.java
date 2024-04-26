@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -31,7 +30,4 @@ public class TicketerZone {
 
     @Column(nullable = false)
     private BigDecimal price;
-
-    @OneToMany(mappedBy = "zone")
-    private Set<TicketerSeat> seats;
 }

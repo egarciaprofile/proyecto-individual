@@ -3,8 +3,6 @@ package dev.estebangperez.ticket.util;
 import dev.estebangperez.ticket.model.TicketerVenueDTO;
 import dev.estebangperez.ticket.model.domain.TicketerVenue;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,8 +17,7 @@ public class TicketerVenueMapper {
                 .city(venue.getCity())
                 .country(venue.getCountry())
                 .address(venue.getAddress())
-                .events(TicketerEventMapper.mapEventsFromEntityToDto(venue.getEvents()))
-                .zones(TicketerZoneMapper.mapZonesFromEntityToDto(venue.getZones()))
+                .capacity(venue.getCapacity())
                 .build();
     }
 
@@ -31,8 +28,7 @@ public class TicketerVenueMapper {
                 .city(dto.getCity())
                 .country(dto.getCountry())
                 .address(dto.getAddress())
-                .events(TicketerEventMapper.mapEventsFromDtoToEntity(dto.getEvents()))
-                .zones(TicketerZoneMapper.mapZonesFromDtoToEntity(dto.getZones()))
+                .capacity(dto.getCapacity())
                 .build();
     }
 

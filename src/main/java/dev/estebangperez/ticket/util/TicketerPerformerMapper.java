@@ -3,7 +3,6 @@ package dev.estebangperez.ticket.util;
 import dev.estebangperez.ticket.model.TicketerPerformerDTO;
 import dev.estebangperez.ticket.model.domain.TicketerPerformer;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,7 +13,6 @@ public class TicketerPerformerMapper {
                 .id(performer.getId())
                 .name(performer.getName())
                 .genre(performer.getGenre())
-                .concerts(TicketerConcertMapper.mapConcertsFromEntityToDto(performer.getConcerts()))
                 .build();
     }
 
@@ -23,7 +21,6 @@ public class TicketerPerformerMapper {
                 .id(dto.getId())
                 .name(dto.getName())
                 .genre(dto.getGenre())
-                .concerts(TicketerConcertMapper.mapConcertsFromDtoToEntity(dto.getConcerts()))
                 .build();
     }
 

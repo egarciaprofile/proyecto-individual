@@ -3,7 +3,6 @@ package dev.estebangperez.ticket.util;
 import dev.estebangperez.ticket.model.TicketerUserDTO;
 import dev.estebangperez.ticket.model.domain.TicketerUser;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +14,6 @@ public class TicketerUserMapper {
                 .surname(user.getSurname())
                 .email(user.getEmail())
                 .phone(user.getPhone())
-                .tickets(TicketerTicketMapper.mapTicketsFromEntityToDto(user.getTickets()))
                 .build();
     }
 
@@ -26,7 +24,6 @@ public class TicketerUserMapper {
                 .surname(dto.getSurname())
                 .email(dto.getEmail())
                 .phone(dto.getPhone())
-                .tickets(TicketerTicketMapper.mapTicketsFromDtoToEntity(dto.getTickets()))
                 .build();
     }
 

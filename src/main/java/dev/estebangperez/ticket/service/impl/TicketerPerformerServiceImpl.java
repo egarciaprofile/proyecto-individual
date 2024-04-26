@@ -1,7 +1,6 @@
 package dev.estebangperez.ticket.service.impl;
 
 import dev.estebangperez.ticket.model.TicketerPerformerDTO;
-import dev.estebangperez.ticket.model.domain.TicketerEvent;
 import dev.estebangperez.ticket.model.domain.TicketerPerformer;
 import dev.estebangperez.ticket.repository.TicketerPerformerRepository;
 import dev.estebangperez.ticket.service.BaseService;
@@ -11,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service

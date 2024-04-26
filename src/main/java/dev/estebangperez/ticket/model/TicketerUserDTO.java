@@ -1,8 +1,10 @@
 package dev.estebangperez.ticket.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,6 +15,6 @@ public class TicketerUserDTO {
     private String surname;
     private String email;
     private String phone;
-    private Set<TicketerTicketDTO> tickets;
+    private List<Long> tickets;
 }
 

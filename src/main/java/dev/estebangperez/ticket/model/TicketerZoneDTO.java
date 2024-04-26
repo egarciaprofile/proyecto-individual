@@ -1,9 +1,10 @@
 package dev.estebangperez.ticket.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -12,6 +13,6 @@ public class TicketerZoneDTO {
     private Long id;
     private String name;
     private String description;
+    private TicketerVenueDTO venue;
     private BigDecimal price;
-    private Set<TicketerSeatDTO> seats;
 }

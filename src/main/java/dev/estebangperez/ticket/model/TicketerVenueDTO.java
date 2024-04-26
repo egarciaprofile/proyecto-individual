@@ -1,9 +1,8 @@
 package dev.estebangperez.ticket.model;
 
-import jakarta.persistence.Column;
-import lombok.*;
-
-import java.util.Set;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -11,10 +10,8 @@ import java.util.Set;
 public class TicketerVenueDTO {
     private Long id;
     private String name;
-    private String location;
     private String city;
     private String country;
     private String address;
-    private Set<TicketerEventDTO> events;
-    private Set<TicketerZoneDTO> zones;
+    private Integer capacity;
 }

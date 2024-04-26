@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -18,8 +17,14 @@ import java.util.Set;
 public class TicketerZoneServiceImpl extends BaseService<TicketerZone, Long> implements TicketerZoneService {
     private final TicketerZoneRepository zoneRepository;
 
+    @Override
     public Set<TicketerZoneDTO> findByNameContainingIgnoreCase(String name) {
         return TicketerZoneMapper.mapZonesFromEntityToDto(zoneRepository.findByNameContainingIgnoreCase(name));
+    }
+
+    @Override
+    public Set<TicketerZoneDTO> findAllByVenueId(Long venueId) {
+        return TicketerZoneMapper.mapZonesFromEntityToDto(zoneRepository.findAllByVenueId(venueId));
     }
 
     @Override

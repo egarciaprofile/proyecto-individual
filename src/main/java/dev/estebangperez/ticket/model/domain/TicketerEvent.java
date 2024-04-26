@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -28,10 +27,4 @@ public class TicketerEvent {
 
     @Column(nullable = false)
     private LocalDateTime eventDate;
-
-    @OneToMany(mappedBy = "event")
-    private Set<TicketerConcert> concerts;
-
-    @OneToMany(mappedBy = "event")
-    private Set<TicketerSeat> seats;
 }

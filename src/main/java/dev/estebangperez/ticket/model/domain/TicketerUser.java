@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Entity
 @Getter
 @NoArgsConstructor
@@ -32,7 +30,4 @@ public class TicketerUser {
 
     @Column(nullable = false, length = 32)
     private String phone;
-
-    @OneToMany(mappedBy = "user")
-    private Set<TicketerTicket> tickets;
 }

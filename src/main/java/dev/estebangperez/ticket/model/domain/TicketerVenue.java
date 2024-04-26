@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Entity
 @Getter
 @NoArgsConstructor
@@ -32,10 +30,4 @@ public class TicketerVenue {
 
     @Column
     private Integer capacity;
-
-    @OneToMany(mappedBy = "venue")
-    private Set<TicketerEvent> events;
-
-    @OneToMany(mappedBy = "venue")
-    private Set<TicketerZone> zones;
 }
