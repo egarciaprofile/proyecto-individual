@@ -5,7 +5,7 @@ import dev.estebangperez.ticket.model.domain.TicketerPerformer;
 import dev.estebangperez.ticket.repository.TicketerPerformerRepository;
 import dev.estebangperez.ticket.service.BaseService;
 import dev.estebangperez.ticket.service.TicketerPerformerService;
-import dev.estebangperez.ticket.util.TicketerPerformerMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerPerformerMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -17,6 +17,7 @@ import java.util.Set;
 public class TicketerPerformerServiceImpl extends BaseService<TicketerPerformer, Long> implements TicketerPerformerService {
     private final TicketerPerformerRepository performerRepository;
 
+    @Override
     public Set<TicketerPerformerDTO> findByNameContainingIgnoreCase(String name) {
         return TicketerPerformerMapper.mapPerformersFromEntityToDto(performerRepository.findByNameContainingIgnoreCase(name));
     }

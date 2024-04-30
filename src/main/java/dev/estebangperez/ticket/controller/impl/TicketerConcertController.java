@@ -2,9 +2,8 @@ package dev.estebangperez.ticket.controller.impl;
 
 import dev.estebangperez.ticket.controller.TicketerConcertApi;
 import dev.estebangperez.ticket.model.TicketerConcertDTO;
-import dev.estebangperez.ticket.model.domain.TicketerConcert;
 import dev.estebangperez.ticket.service.impl.TicketerConcertServiceImpl;
-import dev.estebangperez.ticket.util.TicketerConcertMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerConcertMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,15 +21,12 @@ public class TicketerConcertController implements TicketerConcertApi {
 
     @Override
     public ResponseEntity<Set<TicketerConcertDTO>> getConcertByPerformerName(@PathVariable String performerName) {
-        Set<TicketerConcertDTO> concerts = ticketerConcertService.findByPerformerNameContainingIgnoreCase(performerName);
-        return ResponseEntity.ok(concerts);
+        return ResponseEntity.ok(ticketerConcertService.findByPerformerNameContainingIgnoreCase(performerName));
     }
 
     @Override
     public ResponseEntity<TicketerConcertDTO> createConcert(@RequestBody TicketerConcertDTO concertDTO) {
-        TicketerConcert concert = TicketerConcertMapper.fromDTO(concertDTO);
-        TicketerConcertDTO savedConcertDTO = TicketerConcertMapper.toDTO(ticketerConcertService.save(concert));
-        return ResponseEntity.ok(savedConcertDTO);
+        return ResponseEntity.ok(TicketerConcertMapper.toDTO(ticketerConcertService.save(TicketerConcertMapper.fromDTO(concertDTO))));
     }
 
     @Override

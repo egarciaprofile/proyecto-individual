@@ -4,7 +4,7 @@ import dev.estebangperez.ticket.controller.TicketerUserApi;
 import dev.estebangperez.ticket.model.TicketerUserDTO;
 import dev.estebangperez.ticket.model.domain.TicketerUser;
 import dev.estebangperez.ticket.service.impl.TicketerUserServiceImpl;
-import dev.estebangperez.ticket.util.TicketerUserMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerUserMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;

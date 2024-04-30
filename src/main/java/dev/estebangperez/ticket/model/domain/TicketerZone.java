@@ -22,7 +22,7 @@ public class TicketerZone {
     @JoinColumn(name = "venue_id", nullable = false)
     private TicketerVenue venue;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String name;
 
     @Column

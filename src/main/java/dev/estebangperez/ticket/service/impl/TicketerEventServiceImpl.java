@@ -5,7 +5,7 @@ import dev.estebangperez.ticket.model.domain.TicketerEvent;
 import dev.estebangperez.ticket.repository.TicketerEventRepository;
 import dev.estebangperez.ticket.service.BaseService;
 import dev.estebangperez.ticket.service.TicketerEventService;
-import dev.estebangperez.ticket.util.TicketerEventMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerEventMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -21,10 +21,12 @@ public class TicketerEventServiceImpl extends BaseService<TicketerEvent, Long> i
 
     private final TicketerEventRepository eventRepository;
 
+    @Override
     public Set<TicketerEventDTO> findByEventDate(LocalDate eventDate) {
         return TicketerEventMapper.mapEventsFromEntityToDto(eventRepository.findByEventDate(eventDate));
     }
 
+    @Override
     public Set<TicketerEventDTO> findAllBetweenDates(LocalDateTime startDate, LocalDateTime endDate) {
         return TicketerEventMapper.mapEventsFromEntityToDto(eventRepository.findAllBetweenDates(startDate, endDate));
     }

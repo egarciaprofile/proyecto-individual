@@ -5,7 +5,7 @@ import dev.estebangperez.ticket.model.domain.TicketerVenue;
 import dev.estebangperez.ticket.repository.TicketerVenueRepository;
 import dev.estebangperez.ticket.service.BaseService;
 import dev.estebangperez.ticket.service.TicketerVenueService;
-import dev.estebangperez.ticket.util.TicketerVenueMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerVenueMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -18,6 +18,7 @@ public class TicketerVenueServiceImpl extends BaseService<TicketerVenue, Long> i
 
     private final TicketerVenueRepository venueRepository;
 
+    @Override
     public Set<TicketerVenueDTO> findByCountry(String country) {
         return TicketerVenueMapper.mapVenuesFromEntityToDto(venueRepository.findByCountry(country));
     }

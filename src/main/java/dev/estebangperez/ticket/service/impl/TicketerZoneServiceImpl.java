@@ -5,7 +5,7 @@ import dev.estebangperez.ticket.model.domain.TicketerZone;
 import dev.estebangperez.ticket.repository.TicketerZoneRepository;
 import dev.estebangperez.ticket.service.BaseService;
 import dev.estebangperez.ticket.service.TicketerZoneService;
-import dev.estebangperez.ticket.util.TicketerZoneMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerZoneMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;

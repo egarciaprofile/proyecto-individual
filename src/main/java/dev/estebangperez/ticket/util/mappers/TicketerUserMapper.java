@@ -1,4 +1,4 @@
-package dev.estebangperez.ticket.util;
+package dev.estebangperez.ticket.util.mappers;
 
 import dev.estebangperez.ticket.model.TicketerUserDTO;
 import dev.estebangperez.ticket.model.domain.TicketerUser;

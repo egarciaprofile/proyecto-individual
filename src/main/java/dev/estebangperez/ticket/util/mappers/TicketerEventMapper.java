@@ -1,9 +1,8 @@
-package dev.estebangperez.ticket.util;
+package dev.estebangperez.ticket.util.mappers;
 
 import dev.estebangperez.ticket.model.TicketerEventDTO;
 import dev.estebangperez.ticket.model.domain.TicketerEvent;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -28,10 +27,6 @@ public class TicketerEventMapper {
 
     public static Set<TicketerEventDTO> mapEventsFromEntityToDto(Set<TicketerEvent> events) {
         return events.stream().map(TicketerEventMapper::toDTO).collect(Collectors.toSet());
-    }
-
-    public static List<Long> mapEventsFromEntityToDtoId(Set<TicketerEvent> events) {
-        return events.stream().map(TicketerEvent::getId).collect(Collectors.toList());
     }
 
     public static Set<TicketerEvent> mapEventsFromDtoToEntity(Set<TicketerEventDTO> eventDtos) {

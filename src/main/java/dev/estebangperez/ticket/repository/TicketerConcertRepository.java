@@ -15,4 +15,7 @@ public interface TicketerConcertRepository extends JpaRepository<TicketerConcert
 
     @Query("SELECT c FROM TicketerConcert c WHERE LOWER(c.performer.name) LIKE LOWER(CONCAT('%', :performerName, '%'))")
     Set<TicketerConcert> findByPerformerNameContainingIgnoreCase(@Param("performerName") String performerName);
+
+    @Query("SELECT c FROM TicketerConcert c WHERE c.performer.id = :performerId")
+    Set<TicketerConcert> findConcertsByPerformerId(Long performerId);
 }
