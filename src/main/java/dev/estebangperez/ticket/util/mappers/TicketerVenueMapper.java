@@ -2,15 +2,14 @@ package dev.estebangperez.ticket.util.mappers;
 
 import dev.estebangperez.ticket.model.TicketerVenueDTO;
 import dev.estebangperez.ticket.model.domain.TicketerVenue;
+import lombok.experimental.UtilityClass;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@UtilityClass
 public class TicketerVenueMapper {
-    public static TicketerVenueDTO toDTO(TicketerVenue venue) {
-        if (venue == null) {
-            return null;
-        }
+    public TicketerVenueDTO toDTO(TicketerVenue venue) {
         return TicketerVenueDTO.builder()
                 .id(venue.getId())
                 .name(venue.getName())
@@ -21,7 +20,7 @@ public class TicketerVenueMapper {
                 .build();
     }
 
-    public static TicketerVenue fromDTO(TicketerVenueDTO dto) {
+    public TicketerVenue fromDTO(TicketerVenueDTO dto) {
         return TicketerVenue.builder()
                 .id(dto.getId())
                 .name(dto.getName())
@@ -32,11 +31,11 @@ public class TicketerVenueMapper {
                 .build();
     }
 
-    public static Set<TicketerVenueDTO> mapVenuesFromEntityToDto(Set<TicketerVenue> venues) {
+    public Set<TicketerVenueDTO> mapVenuesFromEntityToDto(Set<TicketerVenue> venues) {
         return venues.stream().map(TicketerVenueMapper::toDTO).collect(Collectors.toSet());
     }
 
-    public static Set<TicketerVenue> mapVenuesFromDtoToEntity(Set<TicketerVenueDTO> venueDtos) {
+    public Set<TicketerVenue> mapVenuesFromDtoToEntity(Set<TicketerVenueDTO> venueDtos) {
         return venueDtos.stream().map(TicketerVenueMapper::fromDTO).collect(Collectors.toSet());
     }
 }

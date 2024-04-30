@@ -2,12 +2,14 @@ package dev.estebangperez.ticket.util.mappers;
 
 import dev.estebangperez.ticket.model.TicketerConcertDTO;
 import dev.estebangperez.ticket.model.domain.TicketerConcert;
+import lombok.experimental.UtilityClass;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@UtilityClass
 public class TicketerConcertMapper {
-    public static TicketerConcertDTO toDTO(TicketerConcert concert) {
+    public TicketerConcertDTO toDTO(TicketerConcert concert) {
         return TicketerConcertDTO.builder()
                 .id(concert.getId())
                 .event(TicketerEventMapper.toDTO(concert.getEvent()))
@@ -15,7 +17,7 @@ public class TicketerConcertMapper {
                 .build();
     }
 
-    public static TicketerConcert fromDTO(TicketerConcertDTO dto) {
+    public TicketerConcert fromDTO(TicketerConcertDTO dto) {
         return TicketerConcert.builder()
                 .id(dto.getId())
                 .event(TicketerEventMapper.fromDTO(dto.getEvent()))
@@ -23,11 +25,11 @@ public class TicketerConcertMapper {
                 .build();
     }
 
-    public static Set<TicketerConcertDTO> mapConcertsFromEntityToDto(Set<TicketerConcert> concerts) {
+    public Set<TicketerConcertDTO> mapConcertsFromEntityToDto(Set<TicketerConcert> concerts) {
         return concerts.stream().map(TicketerConcertMapper::toDTO).collect(Collectors.toSet());
     }
 
-    public static Set<TicketerConcert> mapConcertsFromDtoToEntity(Set<TicketerConcertDTO> concertDtos) {
+    public Set<TicketerConcert> mapConcertsFromDtoToEntity(Set<TicketerConcertDTO> concertDtos) {
         return concertDtos.stream().map(TicketerConcertMapper::fromDTO).collect(Collectors.toSet());
     }
 }
