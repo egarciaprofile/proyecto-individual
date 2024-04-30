@@ -1,11 +1,8 @@
 package dev.estebangperez.ticket.controller.impl;
 
 import dev.estebangperez.ticket.controller.TicketerTicketApi;
-import dev.estebangperez.ticket.model.TicketerPerformerDTO;
 import dev.estebangperez.ticket.model.TicketerTicketDTO;
-import dev.estebangperez.ticket.service.impl.TicketerPerformerServiceImpl;
 import dev.estebangperez.ticket.service.impl.TicketerTicketServiceImpl;
-import dev.estebangperez.ticket.util.mappers.TicketerPerformerMapper;
 import dev.estebangperez.ticket.util.mappers.TicketerTicketMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
