@@ -8,4 +8,6 @@ public interface TicketerConcertService {
     Set<TicketerConcertDTO> findByPerformerName(String performerName);
 
     Set<TicketerConcertDTO> findByPerformerNameContainingIgnoreCase(String performerName);
+
+    Set<TicketerConcertDTO> findConcertsByPerformerId(Long id);
 }

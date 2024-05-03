@@ -5,7 +5,7 @@ import dev.estebangperez.ticket.model.domain.TicketerConcert;
 import dev.estebangperez.ticket.repository.TicketerConcertRepository;
 import dev.estebangperez.ticket.service.BaseService;
 import dev.estebangperez.ticket.service.TicketerConcertService;
-import dev.estebangperez.ticket.util.TicketerConcertMapper;
+import dev.estebangperez.ticket.util.mappers.TicketerConcertMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -18,12 +18,19 @@ public class TicketerConcertServiceImpl extends BaseService<TicketerConcert, Lon
 
     private final TicketerConcertRepository concertRepository;
 
+    @Override
     public Set<TicketerConcertDTO> findByPerformerName(String performerName) {
         return TicketerConcertMapper.mapConcertsFromEntityToDto(concertRepository.findByPerformerName(performerName));
     }
 
+    @Override
     public Set<TicketerConcertDTO> findByPerformerNameContainingIgnoreCase(String performerName) {
         return TicketerConcertMapper.mapConcertsFromEntityToDto(concertRepository.findByPerformerNameContainingIgnoreCase(performerName));
+    }
+
+    @Override
+    public Set<TicketerConcertDTO> findConcertsByPerformerId(Long id) {
+        return TicketerConcertMapper.mapConcertsFromEntityToDto(concertRepository.findConcertsByPerformerId(id));
     }
 
     @Override

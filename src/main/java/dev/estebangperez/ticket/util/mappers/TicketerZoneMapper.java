@@ -1,14 +1,15 @@
-package dev.estebangperez.ticket.util;
+package dev.estebangperez.ticket.util.mappers;
 
 import dev.estebangperez.ticket.model.TicketerZoneDTO;
 import dev.estebangperez.ticket.model.domain.TicketerZone;
+import lombok.experimental.UtilityClass;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@UtilityClass
 public class TicketerZoneMapper {
-    public static TicketerZoneDTO toDTO(TicketerZone zone) {
+    public TicketerZoneDTO toDTO(TicketerZone zone) {
         return TicketerZoneDTO.builder()
                 .id(zone.getId())
                 .name(zone.getName())
@@ -18,7 +19,7 @@ public class TicketerZoneMapper {
                 .build();
     }
 
-    public static TicketerZone fromDTO(TicketerZoneDTO dto) {
+    public TicketerZone fromDTO(TicketerZoneDTO dto) {
         return TicketerZone.builder()
                 .id(dto.getId())
                 .name(dto.getName())
@@ -28,15 +29,11 @@ public class TicketerZoneMapper {
                 .build();
     }
 
-    public static Set<TicketerZoneDTO> mapZonesFromEntityToDto(Set<TicketerZone> zones) {
+    public Set<TicketerZoneDTO> mapZonesFromEntityToDto(Set<TicketerZone> zones) {
         return zones.stream().map(TicketerZoneMapper::toDTO).collect(Collectors.toSet());
     }
 
-    public static List<Long> mapZonesFromEntityToDtoId(Set<TicketerZone> zones) {
-        return zones.stream().map(TicketerZone::getId).collect(Collectors.toList());
-    }
-
-    public static Set<TicketerZone> mapZonesFromDtoToEntity(Set<TicketerZoneDTO> zoneDtos) {
+    public Set<TicketerZone> mapZonesFromDtoToEntity(Set<TicketerZoneDTO> zoneDtos) {
         return zoneDtos.stream().map(TicketerZoneMapper::fromDTO).collect(Collectors.toSet());
     }
 }

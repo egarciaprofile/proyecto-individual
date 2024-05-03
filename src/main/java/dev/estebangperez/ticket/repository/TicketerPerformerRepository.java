@@ -9,4 +9,5 @@ import java.util.Set;
 @Repository
 public interface TicketerPerformerRepository extends JpaRepository<TicketerPerformer, Long> {
     Set<TicketerPerformer> findByNameContainingIgnoreCase(String name);
+
 }

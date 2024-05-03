@@ -1,14 +1,16 @@
-package dev.estebangperez.ticket.util;
+package dev.estebangperez.ticket.util.mappers;
 
 import dev.estebangperez.ticket.model.TicketerPerformerDTO;
 import dev.estebangperez.ticket.model.domain.TicketerPerformer;
+import lombok.experimental.UtilityClass;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@UtilityClass
 public class TicketerPerformerMapper {
-    public static TicketerPerformerDTO toDTO(TicketerPerformer performer) {
+    public TicketerPerformerDTO toDTO(TicketerPerformer performer) {
         return TicketerPerformerDTO.builder()
                 .id(performer.getId())
                 .name(performer.getName())
@@ -16,7 +18,7 @@ public class TicketerPerformerMapper {
                 .build();
     }
 
-    public static TicketerPerformer fromDTO(TicketerPerformerDTO dto) {
+    public TicketerPerformer fromDTO(TicketerPerformerDTO dto) {
         return TicketerPerformer.builder()
                 .id(dto.getId())
                 .name(dto.getName())
@@ -24,11 +26,11 @@ public class TicketerPerformerMapper {
                 .build();
     }
 
-    public static Set<TicketerPerformerDTO> mapPerformersFromEntityToDto(Set<TicketerPerformer> performers) {
+    public Set<TicketerPerformerDTO> mapPerformersFromEntityToDto(Set<TicketerPerformer> performers) {
         return performers.stream().map(TicketerPerformerMapper::toDTO).collect(Collectors.toSet());
     }
 
-    public static Set<TicketerPerformer> mapPerformersFromDtoToEntity(List<TicketerPerformerDTO> performerDtos) {
+    public Set<TicketerPerformer> mapPerformersFromDtoToEntity(List<TicketerPerformerDTO> performerDtos) {
         return performerDtos.stream().map(TicketerPerformerMapper::fromDTO).collect(Collectors.toSet());
     }
 }
