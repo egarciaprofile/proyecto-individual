@@ -1,7 +1,7 @@
 package dev.estebangperez.ticket.controller;
 
 import dev.estebangperez.ticket.model.TicketerConcertDTO;
-import dev.estebangperez.ticket.utils.TicketerApi;
+import dev.estebangperez.ticket.util.TicketerApi;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
