@@ -8,6 +8,7 @@ import dev.estebangperez.ticket.util.mappers.TicketerUserMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,9 +20,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class TicketerUserController implements TicketerUserApi {
     private final TicketerUserServiceImpl ticketerUserService;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseEntity<TicketerUserDTO> createUser(@RequestBody TicketerUserDTO userDTO) {
+        userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+
         TicketerUser user = TicketerUserMapper.fromDTO(userDTO);
         if (ticketerUserService.findByEmail(user.getEmail()).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
