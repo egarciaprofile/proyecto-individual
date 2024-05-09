@@ -28,7 +28,7 @@ public class TicketerUserController implements TicketerUserApi {
 
         TicketerUser user = TicketerUserMapper.fromDTO(userDTO);
         if (ticketerUserService.findByEmail(user.getEmail()).isPresent()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
         TicketerUserDTO savedUserDTO = TicketerUserMapper.toDTO(ticketerUserService.save(user));
 
