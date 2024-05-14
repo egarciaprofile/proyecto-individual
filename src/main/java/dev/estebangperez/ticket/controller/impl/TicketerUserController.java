@@ -6,6 +6,7 @@ import dev.estebangperez.ticket.model.domain.TicketerUser;
 import dev.estebangperez.ticket.service.impl.TicketerUserServiceImpl;
 import dev.estebangperez.ticket.util.mappers.TicketerUserMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,11 @@ public class TicketerUserController implements TicketerUserApi {
     @Override
     public ResponseEntity<TicketerUserDTO> createUser(@RequestBody TicketerUserDTO userDTO) {
         TicketerUser user = TicketerUserMapper.fromDTO(userDTO);
+        if (ticketerUserService.findByEmail(user.getEmail()).isPresent()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
         TicketerUserDTO savedUserDTO = TicketerUserMapper.toDTO(ticketerUserService.save(user));
+
         return ResponseEntity.ok(savedUserDTO);
     }
 
