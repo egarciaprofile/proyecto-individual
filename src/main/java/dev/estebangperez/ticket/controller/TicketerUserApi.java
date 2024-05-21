@@ -19,7 +19,7 @@ public interface TicketerUserApi {
     @GetMapping("/search/{mail}")
     ResponseEntity<TicketerUserDTO> findUserByMail(@PathVariable String mail);
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     ResponseEntity<Void> deleteUser(@PathVariable Long id);
 
     @GetMapping
